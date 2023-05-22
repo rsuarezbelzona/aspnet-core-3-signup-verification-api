@@ -6,6 +6,7 @@
     <PackageReference Include="AutoMapper" Version="10.0.0" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.0.0" />
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.0" />
+    <PackageReference Include="EntityFramework" Version="6.4.0" />
     <PackageReference Include="MailKit" Version="2.8.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.6">
@@ -13,7 +14,14 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.5" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.5.1" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.7.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WebApi\BusinessLib\BusinessLib.csproj" />
+    <ProjectReference Include="..\WebApi\DataDAL\DataDAL.csproj" />
+    <ProjectReference Include="..\WebApi\ProductosDAL\ProductosDAL.csproj" />
+    <ProjectReference Include="..\WebApi\UniDAL\UniDAL.csproj" />
   </ItemGroup>
 </Project>

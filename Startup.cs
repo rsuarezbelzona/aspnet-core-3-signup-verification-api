@@ -9,6 +9,8 @@ using WebApi.Helpers;
 using WebApi.Middleware;
 using WebApi.Services;
 
+using DataDAL;
+
 namespace WebApi
 {
     public class Startup
@@ -23,7 +25,9 @@ namespace WebApi
         // add services to the DI container
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<DataContext>();
+             services.AddDbContext<DataContext>();
+            //services.AddDbContext<DataDBContext>();
+
             services.AddCors();
             services.AddControllers().AddJsonOptions(x => x.JsonSerializerOptions.IgnoreNullValues = true);
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
@@ -41,7 +45,8 @@ namespace WebApi
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, DataContext context)
         {
             // migrate database changes on startup (includes initial db creation)
-            context.Database.Migrate();
+            //context.Database.Migrate();
+
 
             // generated swagger json and swagger ui middleware
             app.UseSwagger();

@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApi.Helpers;
-
+/*
 namespace WebApi.Migrations
 {
     [DbContext(typeof(DataContext))]
@@ -115,3 +115,4 @@ namespace WebApi.Migrations
         }
     }
 }
+*/

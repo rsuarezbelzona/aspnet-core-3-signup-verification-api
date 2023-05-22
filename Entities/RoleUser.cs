@@ -1,6 +1,6 @@
 namespace WebApi.Entities
 {
-    public enum Role
+    public enum RoleUser
     {
         Admin,
         User

@@ -1,18 +1,22 @@
-using BusinessLib.Distributors.Models;
+﻿using BusinessLib.Distributors.Models;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace WebApi.Models.Accounts
+namespace WebApiAuthentication.Models.Accounts
 {
-    public class RegisterRequest
-    {      
+    public class EditProfileRequest
+    {
         [Required]
         public string FullName { get; set; }
 
         [Required]
         public string CompanyName { get; set; }
 
-        //[Required]
-        //public DistributorFindFormDTO FindDistributor { get; set; }
+        [Required]
+        public DistributorFindFormDTO FindDistributor { get; set; }
 
         [Required]
         [EmailAddress]
@@ -24,14 +28,5 @@ namespace WebApi.Models.Accounts
         [Required]
         [MinLength(6)]
         public string Password { get; set; }
-
-    
-
-        //[Required]
-        //[Compare("Password")]
-        //public string ConfirmPassword { get; set; }
-
-        //[Range(typeof(bool), "true", "true")]
-        //public bool AcceptTerms { get; set; }
     }
 }

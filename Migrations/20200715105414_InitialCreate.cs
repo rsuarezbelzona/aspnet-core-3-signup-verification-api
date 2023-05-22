@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
-
+/*
 namespace WebApi.Migrations
 {
     public partial class InitialCreate : Migration
@@ -75,3 +75,4 @@ namespace WebApi.Migrations
         }
     }
 }
+*/

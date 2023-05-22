@@ -9,11 +9,11 @@ using WebApi.Entities;
 [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
 public class AuthorizeAttribute : Attribute, IAuthorizationFilter
 {
-    private readonly IList<Role> _roles;
+    private readonly IList<RoleUser> _roles;
 
-    public AuthorizeAttribute(params Role[] roles)
+    public AuthorizeAttribute(params RoleUser[] roles)
     {
-        _roles = roles ?? new Role[] { };
+        _roles = roles ?? new RoleUser[] { };
     }
 
     public void OnAuthorization(AuthorizationFilterContext context)

@@ -12,6 +12,8 @@ using System.Text;
 using WebApi.Entities;
 using WebApi.Helpers;
 using WebApi.Models.Accounts;
+//using DataDAL;
+using BusinessLib.Distributors.Models;
 
 namespace WebApi.Services
 {
@@ -38,6 +40,8 @@ namespace WebApi.Services
         private readonly IMapper _mapper;
         private readonly AppSettings _appSettings;
         private readonly IEmailService _emailService;
+
+       // private readonly DataContext dataContext;
 
         public AccountService(
             DataContext context,
@@ -114,6 +118,24 @@ namespace WebApi.Services
 
         public void Register(RegisterRequest model, string origin)
         {
+
+            List<DistributorNationDTO> result = new List<DistributorNationDTO>();
+
+            //var myresult = _context.Belzona_Nations.FirstOrDefault();
+
+            var myresult1 = _context.CustomerTables.FirstOrDefault();
+
+            //result = _context.Belzona_Nations
+            //    .Select(dtoResult => new DistributorNationDTO
+            //    {
+            //        NationId = dtoResult.BN_ID,
+            //        NationCode = dtoResult.BN_Code,
+            //        Country = dtoResult.BN_Description
+
+            //    })
+            //    .OrderBy(s => s.NationCode)
+            //    .ToList();
+
             // validate
             if (_context.Accounts.Any(x => x.Email == model.Email))
             {
@@ -127,7 +149,7 @@ namespace WebApi.Services
 
             // first registered account is an admin
             var isFirstAccount = _context.Accounts.Count() == 0;
-            account.Role = isFirstAccount ? Role.Admin : Role.User;
+            account.Role = isFirstAccount ? RoleUser.Admin : RoleUser.User;
             account.Created = DateTime.UtcNow;
             account.VerificationToken = randomTokenString();
 
